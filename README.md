@@ -65,6 +65,9 @@ project-name/
 
 - **Benamin Young** - Learning to code is fun.
 - **Anthony and Mahyar** - BCIT CST Student, Frontend enthusiast with a knack for creative design. Fun fact: Has a collection of over 50 houseplants.
+- **Mahyar Golestanpour** - BCIT CST Student with a passion for creating user-friendly applications. Fun fact: Loves solving Rubik's Cubes in under a minute.
+- **Anthony Herradura** - Hi, my name is Anthony. I am a BCIT CST Student with a passion for creating user-friendly applications.
+- **Teammate Name** - BCIT CST Student, Frontend enthusiast with a knack for creative design. Fun fact: Has a collection of over 50 houseplants.
 
 ---
 
