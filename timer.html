@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
@@ -13,41 +14,13 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles/style.css">
-
-    <style>
-        #timers {
-            background-color: rgb(171, 82, 34);
-            border-radius: 20px;
-            padding: 20px 30px;
-        }
-
-        #add_time {
-            position: absolute;
-            right: 5%;
-            bottom: 100%;
-            color: black;
-        }
-
-        h2 {
-            display: inline;
-        }
-
-        #time {
-            background-color: #EEEEEE;
-            border-radius: 10px;
-            font-size: x-large;
-            display: inline;
-            font-weight: bold;
-            border: 1px solid black;
-        }
-
-        #time_head {
-            margin: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles/timer.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
 </head>
 
 <body>
+    
     <header>
         <nav class="navbar navbar-expand-lg navbar-color">
             <div class="container-fluid navbar-color">
@@ -70,8 +43,31 @@
 
     <main>
         <div id="time_head">
-            <h2 id="task_title">Timer:</h2>
-            <p id="time">00:00</p>
+            <!-- <h2 id="task_title">Timer:</h2>
+            <span class="timer__part timer__part--minutes">00</span>
+            <span class="timer__part">:</span>
+            <span class="timer__part timer__part--seconds">00</span>
+            <button type="button" class="timer__btn timer__btn--control timer__btn--start">
+                <span class="material-icons">play_arrow</span>
+            </button>
+            <button type="button" class="timer__btn timer__btn--reset">
+                <span class="material-icons">timer</span>
+            </button> -->
+        </div>
+        <div class="timer-card">
+            <p class="timer-title">Pomodoro Technique Timer</p>
+            <p>Work Time: 25 minutes</p>
+            <p>Break Time: 5 minutes</p>
+            <div class="timer-container">
+
+            </div>
+        </div>
+        <div class="timer-card">
+            <p class="timer-title">52/17 Rule</p>
+            <p>Work intensively for 52 minutes, then rest for 17 minutes</p>
+            <div class="timer-container">
+
+            </div>
         </div>
     </main>
 
@@ -130,6 +126,7 @@
             </div>
         </nav>
     </footer>
+    <script src="/scripts/main.js" type="module"></script>
 </body>
 
 </html>
