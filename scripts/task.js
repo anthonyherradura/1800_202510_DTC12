@@ -42,13 +42,9 @@ function editUserTask() {
 }
 
 function saveUserTask() {
-    //enter code here
-
-    //a) get user entered values
     userTaskTitle = document.getElementById('taskTitleInput').value;
     userStartDate = document.getElementById('startDateInput').value;
     userDueDate = document.getElementById('dueDateInput').value;
-    //b) update user's document in Firestore
     currentUser.update({
         taskName: userTaskTitle,
         startDate: userStartDate,
@@ -57,7 +53,6 @@ function saveUserTask() {
         .then(() => {
             console.log("Document successfully updated!");
         })
-    //c) disable edit 
     document.getElementById('personalInfoFields').disabled = true;
 }
 
