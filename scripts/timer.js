@@ -1,5 +1,6 @@
-export default class Timer {
-    constructor(root) {
+export default class Timer{
+    constructor(root){
+        console.log(root);
         root.innerHTML = Timer.getHTML();
 
         this.el = {
@@ -13,11 +14,21 @@ export default class Timer {
         this.remainingSeconds = 0;
 
         this.el.control.addEventListener("click", () =>{
-            
+            if (this.interval === null){
+                this.start();
+            }else {
+                this.stop();
+            }
         });
 
         this.el.reset.addEventListener("click", () =>{
+            const inputMinutes = prompt("Enter number of minutes");
 
+            if (inputMinutes < 60){
+                this.stop();
+                this.remainingSeconds = inputMinutes * 60;
+                this.updateInterfaceTime();
+            }
         });
     }
 
@@ -42,7 +53,26 @@ export default class Timer {
     }
 
     start() {
-        if (this.remaining)
+        if (this.remainingSeconds === 0) return;
+
+        this.interval = setInterval(() => {
+           this.remainingSeconds--;
+           this.updateInterfaceTime(); 
+
+           if (this.remainingSeconds === 0){
+            this.stop();
+           }
+        }, 1000);
+
+        this.updateInterfaceControls();
+    }
+
+    stop(){
+        clearInterval(this.interval);
+
+        this.interval = null;
+
+        this.updateInterfaceControls();
     }
 
     static getHTML() {
