@@ -54,3 +54,7 @@ svg {
     display: block;
     margin: auto;
 }
+
+.paragraph-width{
+    max-width: 50%;
+}

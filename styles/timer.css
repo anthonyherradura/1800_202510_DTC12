@@ -33,6 +33,7 @@ h2 {
 }
 
 .timer-card {
+    position: relative;
     margin-top: 10px;
     margin-left: 70px;
     margin-right: 50%;
@@ -75,4 +76,13 @@ h2 {
 
 .timer__btn--stop{
     background: red;
+}
+
+.start{
+    position: absolute;
+    bottom: 40%;
+    right: 5%;
+    font-size: x-large;
+    border-radius: 10px;
+    background: #9bff65;
 }
