@@ -1,12 +1,26 @@
+/* This upper section of the css file will be used for general code that doesn't belong to a specific section or is used in multiple spots */
 body {
     background-color: azure;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
 }
 
-.navbar-color {
-    background-color: rgb(220, 108, 47);
-    color: azure;
-    padding-top: 10x;
-    padding-bottom: 10px;
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 75px 1fr auto;
+    gap: 5px;
+    height: 100vh;
+    grid-template-areas:
+        "header header header"
+        "main main main"
+        "footer footer footer";
+}
+
+/* header section of code goes here */
+header {
+    grid-area: header;
+    text-align: center;
 }
 
 .BAM {
@@ -17,14 +31,31 @@ body {
     color: lightgoldenrodyellow;
 }
 
+/* main section of code goes here */
+main {
+    grid-area: main;
+    overflow: auto;
+}
+
 #task_title {
     margin: 10px;
 }
 
+.paragraph-width {
+    max-width: 50%;
+}
+
+/* footer section of code goes here */
 footer {
-    position: absolute;
-    bottom: 0;
+    grid-area: footer;
     width: 100%;
+}
+
+.navbar-color {
+    background-color: rgb(220, 108, 47);
+    color: azure;
+    padding-top: 10x;
+    padding-bottom: 10px;
 }
 
 #footer_nav {
@@ -53,8 +84,4 @@ a {
 svg {
     display: block;
     margin: auto;
-}
-
-.paragraph-width{
-    max-width: 50%;
 }

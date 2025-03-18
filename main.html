@@ -25,9 +25,11 @@
         }
 
         #add_task {
-            position: absolute;
-            right: 5%;
-            bottom: 100%;
+            background-color: #DDDDDD;
+            border-radius: 20px;
+            position: fixed;
+            right: 20px;
+            bottom: 18%;
             padding: 5px;
             color: black;
             margin-bottom: 10px;
@@ -41,7 +43,7 @@
         }
 
         #add_task:hover {
-            background-color: #DDDDDD;
+            background-color: #CCCCCC;
             border-radius: 20px;
         }
 
@@ -52,75 +54,90 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-color">
-            <div class="container-fluid navbar-color">
-                <h1 class="BAM" href="#">BAM</h1>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse navbar-color" id="navbarNavAltMarkup">
-                    <div class="navbar-nav navbar-color">
-                        <a class="nav-link navbar-color" aria-current="page" href="#">Nav 1</a>
-                        <a class="nav-link navbar-color" href="#">Nav 2</a>
-                        <a class="nav-link navbar-color" href="#">Nav 3</a>
+    <div class="grid">
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-color">
+                <div class="container-fluid navbar-color">
+                    <h1 class="BAM" href="#">BAM</h1>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse navbar-color" id="navbarNavAltMarkup">
+                        <div class="navbar-nav navbar-color">
+                            <a class="nav-link navbar-color" aria-current="page" href="#">Nav 1</a>
+                            <a class="nav-link navbar-color" href="#">Nav 2</a>
+                            <a class="nav-link navbar-color" href="#">Nav 3</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </nav>
-    </header>
+            </nav>
+        </header>
 
-    <main>
-        <div id="task_head">
-            <h2 id="task_title">Tasks:</h2>
-        </div>
-        <div id="displayTask">
-            <h4 class="title"><b>Task Title</b></h4>
-            <br>
-            <p>Start date: <span class="start"></span></p>
-            <p>Due Date: <span class="due"></span></p>
-        </div>
-    </main>
-
-    <footer>
-        <nav id="footer_nav" class="navbar-color">
-            <div id="home" class="icons">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="40" height="40">
-                    <path
-                        d="M12.707 2.293l9 9c.63 .63 .184 1.707 -.707 1.707h-1v6a3 3 0 0 1 -3 3h-1v-7a3 3 0 0 0 -2.824 -2.995l-.176 -.005h-2a3 3 0 0 0 -3 3v7h-1a3 3 0 0 1 -3 -3v-6h-1c-.89 0 -1.337 -1.077 -.707 -1.707l9 -9a1 1 0 0 1 1.414 0m.293 11.707a1 1 0 0 1 1 1v7h-4v-7a1 1 0 0 1 .883 -.993l.117 -.007z">
-                    </path>
-                </svg>
-                <p><b>Home</b></p>
+        <main>
+            <div id="task_head">
+                <h2 id="task_title">Tasks:</h2>
             </div>
-            <a href="timer.html" id="timers" class="icons">
-                <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-linecap="round" stroke-linejoin="round" width="40" height="40" stroke-width="2">
-                        <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
-                        <path d="M12 12l3 2"></path>
-                        <path d="M12 7v5"></path>
-                    </svg>
-                    <p><b>Timers</b></p>
-                </div>
-            </a>
-            <div id="calendar" class="icons">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-linecap="round" stroke-linejoin="round" width="40" height="40" stroke-width="2">
-                    <path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z"></path>
-                    <path d="M16 3v4"></path>
-                    <path d="M8 3v4"></path>
-                    <path d="M4 11h16"></path>
-                    <path d="M7 14h.013"></path>
-                    <path d="M10.01 14h.005"></path>
-                    <path d="M13.01 14h.005"></path>
-                    <path d="M16.015 14h.005"></path>
-                    <path d="M13.015 17h.005"></path>
-                    <path d="M7.01 17h.005"></path>
-                    <path d="M10.01 17h.005"></path>
-                </svg>
-                <p><b>Calendar</b></p>
+            <div id="displayTask">
+                <h4 class="title"><b>Task Title</b></h4>
+                <br>
+                <p>Start date: <span class="start"></span></p>
+                <p>Due Date: <span class="due"></span></p>
+            </div>
+            <div id="displayTask">
+                <h4 class="title"><b>Task Title</b></h4>
+                <br>
+                <p>Start date: <span class="start"></span></p>
+                <p>Due Date: <span class="due"></span></p>
+            </div>
+            <div id="displayTask">
+                <h4 class="title"><b>Task Title</b></h4>
+                <br>
+                <p>Start date: <span class="start"></span></p>
+                <p>Due Date: <span class="due"></span></p>
+            </div>
+            <div id="displayTask">
+                <h4 class="title"><b>Task Title</b></h4>
+                <br>
+                <p>Start date: <span class="start"></span></p>
+                <p>Due Date: <span class="due"></span></p>
+            </div>
+            <div id="displayTask">
+                <h4 class="title"><b>Task Title</b></h4>
+                <br>
+                <p>Start date: <span class="start"></span></p>
+                <p>Due Date: <span class="due"></span></p>
+            </div>
+            <div id="displayTask">
+                <h4 class="title"><b>Task Title</b></h4>
+                <br>
+                <p>Start date: <span class="start"></span></p>
+                <p>Due Date: <span class="due"></span></p>
+            </div>
+            <div id="displayTask">
+                <h4 class="title"><b>Task Title</b></h4>
+                <br>
+                <p>Start date: <span class="start"></span></p>
+                <p>Due Date: <span class="due"></span></p>
+            </div>
+            <div id="displayTask">
+                <h4 class="title"><b>Task Title</b></h4>
+                <br>
+                <p>Start date: <span class="start"></span></p>
+                <p>Due Date: <span class="due"></span></p>
+            </div>
+            <div id="displayTask">
+                <h4 class="title"><b>Task Title</b></h4>
+                <br>
+                <p>Start date: <span class="start"></span></p>
+                <p>Due Date: <span class="due"></span></p>
+            </div>
+            <div id="displayTask">
+                <h4 class="title"><b>Task Title</b></h4>
+                <br>
+                <p>Start date: <span class="start"></span></p>
+                <p>Due Date: <span class="due"></span></p>
             </div>
             <a href="task.html" id="add_task">
                 <div>
@@ -133,8 +150,51 @@
                     <p><b>Add Task</b></p>
                 </div>
             </a>
-        </nav>
-    </footer>
+        </main>
+
+        <footer>
+            <nav id="footer_nav" class="navbar-color">
+                <div id="home" class="icons">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="40"
+                        height="40">
+                        <path
+                            d="M12.707 2.293l9 9c.63 .63 .184 1.707 -.707 1.707h-1v6a3 3 0 0 1 -3 3h-1v-7a3 3 0 0 0 -2.824 -2.995l-.176 -.005h-2a3 3 0 0 0 -3 3v7h-1a3 3 0 0 1 -3 -3v-6h-1c-.89 0 -1.337 -1.077 -.707 -1.707l9 -9a1 1 0 0 1 1.414 0m.293 11.707a1 1 0 0 1 1 1v7h-4v-7a1 1 0 0 1 .883 -.993l.117 -.007z">
+                        </path>
+                    </svg>
+                    <p><b>Home</b></p>
+                </div>
+                <a href="timer.html" id="timers" class="icons">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round" width="40" height="40" stroke-width="2">
+                            <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+                            <path d="M12 12l3 2"></path>
+                            <path d="M12 7v5"></path>
+                        </svg>
+                        <p><b>Timers</b></p>
+                    </div>
+                </a>
+                <div id="calendar" class="icons">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-linecap="round" stroke-linejoin="round" width="40" height="40" stroke-width="2">
+                        <path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z">
+                        </path>
+                        <path d="M16 3v4"></path>
+                        <path d="M8 3v4"></path>
+                        <path d="M4 11h16"></path>
+                        <path d="M7 14h.013"></path>
+                        <path d="M10.01 14h.005"></path>
+                        <path d="M13.01 14h.005"></path>
+                        <path d="M16.015 14h.005"></path>
+                        <path d="M13.015 17h.005"></path>
+                        <path d="M7.01 17h.005"></path>
+                        <path d="M10.01 17h.005"></path>
+                    </svg>
+                    <p><b>Calendar</b></p>
+                </div>
+            </nav>
+        </footer>
+    </div>
 </body>
 
 </html>
