@@ -2,33 +2,30 @@ var currentUser
 
 function populateUserTask() {
     firebase.auth().onAuthStateChanged(user => {
-        // Check if user is signed in:
-        if (user) {
+        if (!user) {
+            window.location.href = "login.html"; // Redirect to login
+        } else {
+            currentUser = db.collection("users").doc(user.uid);
 
-            //go to the correct user document by referencing to the user uid
-            currentUser = db.collection("users").doc(user.uid)
-            //get the document for current user.
-            currentUser.get()
-                .then(userDoc => {
-                    //get the data fields of the user
+            currentUser.get().then(userDoc => {
+                if (userDoc.exists) {
                     let userTaskTitle = userDoc.data().taskName;
                     let userStartDate = userDoc.data().startDate;
                     let userDueDate = userDoc.data().dueDate;
 
-                    //if the data fields are not empty, then write them in to the form.
-                    if (userTaskTitle != null) {
+                    if (userTaskTitle) {
                         document.getElementById("taskTitleInput").value = userTaskTitle;
                     }
-                    if (userStartDate != null) {
+                    if (userStartDate) {
                         document.getElementById("startDateInput").value = userStartDate;
                     }
-                    if (userDueDate != null) {
+                    if (userDueDate) {
                         document.getElementById("dueDateInput").value = userDueDate;
                     }
-                })
-        } else {
-            // No user is signed in.
-            console.log("No user is signed in");
+                }
+            }).catch(error => {
+                console.error("Error fetching user data: ", error);
+            });
         }
     });
 }
@@ -38,10 +35,15 @@ populateUserTask();
 
 function editUserTask() {
     //Enable the form fields
-    document.getElementById('personalInfoFields').disabled = false;
+    document.getElementById('personalInfoFields').removeAttribute('disabled');
 }
 
 function saveUserTask() {
+    if (!currentUser) {
+        console.error("Error: currentUser is undefined. Make sure the user is logged in.");
+        return;
+    }
+
     userTaskTitle = document.getElementById('taskTitleInput').value;
     userStartDate = document.getElementById('startDateInput').value;
     userDueDate = document.getElementById('dueDateInput').value;
@@ -52,26 +54,45 @@ function saveUserTask() {
     })
         .then(() => {
             console.log("Document successfully updated!");
+            document.getElementById('personalInfoFields').disabled = true;
         })
-    document.getElementById('personalInfoFields').disabled = true;
+        .catch(error => {
+            console.error("Error updating task: ", error);
+        });
 }
 
 function displayTask(collection) {
-    let display = document.getElementById("displayTask");
-    db.collection(collection).get()
-        .then(allTasks => {
-            allTasks.forEach(doc => {
-                var taskTitle = doc.data().taskName;
-                var taskStart = doc.data().startDate;
-                var taskDue = doc.data().dueDate;
-                var taskID = doc.id;
-                let newTask = display.content.cloneNode(true);
+    let taskContainer = document.getElementById("displayTask");
+    taskContainer.innerHTML = "";
 
-                display.querySelector('.title').innerHTML = taskTitle;
-                display.querySelector('.start').innerHTML = taskStart;
-                display.querySelector('.due').innerHTML = taskDue;
-            })
-        })
+    db.collection(collection).get().then(allTasks => {
+        allTasks.forEach(doc => {
+            let taskData = doc.data();
+            let taskID = doc.id;
+
+            let taskDiv = document.createElement("div");
+            taskDiv.classList.add("task");
+            taskDiv.innerHTML = `
+                <h4 class="title">${taskData.taskName}</h4>
+                <p><strong>Start:</strong> <span class="start">${taskData.startDate}</span></p>
+                <p><strong>Due:</strong> <span class="due">${taskData.dueDate}</span></p>
+                <button onclick="deleteTask('${taskID}')">Delete</button>
+            `;
+
+            taskContainer.appendChild(taskDiv);
+        });
+    }).catch(error => {
+        console.error("Error loading tasks: ", error);
+    });
+}
+
+function deleteTask(taskID) {
+    db.collection("tasks").doc(taskID).delete().then(() => {
+        console.log("Task deleted!");
+        displayTask("tasks"); // Refresh task list
+    }).catch(error => {
+        console.error("Error deleting task: ", error);
+    });
 }
 
 displayTask("tasks");
