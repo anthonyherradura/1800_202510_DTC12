@@ -7,7 +7,7 @@
 }
 
 #timers {
-    background-color: rgb(171, 82, 34);
+    background-color: rgb(16, 58, 125);
     border-radius: 20px;
     padding: 20px 30px;
 }
@@ -70,15 +70,15 @@ h2 {
     cursor: pointer;
 }
 
-.timer__btn--start{
+.timer__btn--start {
     background: #9bff65;
 }
 
-.timer__btn--stop{
+.timer__btn--stop {
     background: red;
 }
 
-.start{
+.start {
     position: absolute;
     bottom: 40%;
     right: 5%;

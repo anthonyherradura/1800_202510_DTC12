@@ -5,7 +5,7 @@ body {
     grid-template-rows: auto 1fr auto;
 }
 
-.grid {
+.wrapper {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 75px 1fr auto;
@@ -52,7 +52,8 @@ footer {
 }
 
 .navbar-color {
-    background-color: rgb(220, 108, 47);
+    /* background-color: rgb(220, 108, 47); */
+    background-image: linear-gradient(to right, rgb(47, 220, 209), rgb(1, 55, 142));
     color: azure;
     padding-top: 10x;
     padding-bottom: 10px;
@@ -70,7 +71,8 @@ a {
 }
 
 .icons:hover {
-    background-color: rgb(195, 93, 38);
+    /* background-color: rgb(195, 93, 38); */
+    background-color: rgb(18, 85, 192);
     border-radius: 20px;
     padding: 20px 25px;
 }
