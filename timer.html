@@ -42,42 +42,17 @@
             </nav>
         </header>
         <main>
-            <div id="time_head">
-                <h2 id="task_title">Timer:</h2>
-                <span class="timer__part timer__part--minutes">00</span>
-                <span class="timer__part">:</span>
-                <span class="timer__part timer__part--seconds">00</span>
-                <button type="button" class="timer__btn timer__btn--control timer__btn--start">
-                    <span class="material-icons">play_arrow</span>
-                </button>
-                <button type="button" class="timer__btn timer__btn--reset">
-                    <span class="material-icons">timer</span>
-                </button>
-            </div>
-            <div class="timer-card">
-                <p class="timer-title">Pomodoro Technique Timer</p>
-                <div>
-                    <div class="m-3 h4 inlin">
-                        <p>Work Time: 25 minutes</p>
-                        <p>Break Time: 5 minutes</p>
-                    </div>
-                    <div class="start">
-                        <button class="start">Start</button>
+            <div class="timer-body">
+                <div class="container">
+                    <h1 class="title">Pomodoro Timer</h1>
+                    <hr>
+                    <p class="timer" id="timer">25:00</p>
+                    <div class="button-wrapper">
+                        <button id="start">Start</button>
+                        <button id="stop">Stop</button>
+                        <button id="reset">Reset</button>
                     </div>
                 </div>
-                <br>
-            </div>
-            <div class="timer-card">
-                <div>
-                    <p class="timer-title">52/17 Rule</p>
-                    <div class="paragraph-width">
-                        <p class="m-3 h4">Work intensively for 52 minutes, then rest for 17 minutes</p>
-                    </div>
-                    <div class="start">
-                        <button class="start">Start</button>
-                    </div>
-                </div>
-                <br>
             </div>
         </main>
 
@@ -140,7 +115,7 @@
         </footer>
     </div>
     <script src="/scripts/main.js" type="module"></script>
-    <script src="/scripts/timer.js"></script>
+    <script src="/scripts/timer_app.js"></script>
 </body>
 
 </html>

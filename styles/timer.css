@@ -86,3 +86,55 @@ h2 {
     border-radius: 10px;
     background: #9bff65;
 }
+
+.timer-body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    color: black;
+    border-radius: 2em;
+    padding: 4em 3em;
+}
+
+hr{
+    width: 100%;
+    height: 5px;
+    border-radius: 1em;
+}
+.timer{
+    font-size: 7em;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.timer-wrapping{
+    display: flex;
+    gap: 1em;
+}
+
+#start, #stop, #reset{
+    font-size: 2em;
+    font-weight: 800;
+    letter-spacing: 1px;
+    padding: 0.5em 1.5em;
+    border-radius: 0.5em;
+    color: black;
+    cursor: pointer;
+    transition: 0.25s ease-in-out;
+}
+#start{
+    background-color: greenyellow;
+}
+#stop{
+    background-color: red;
+}
+#reset{
+    background-color: rgb(17, 120, 255);
+}
