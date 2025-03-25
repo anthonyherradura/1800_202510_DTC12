@@ -39,58 +39,60 @@ function editUserTask() {
 }
 
 function saveUserTask() {
-    if (!currentUser) {
-        console.error("Error: currentUser is undefined. Make sure the user is logged in.");
-        return;
-    }
+    let userTaskTitle = document.getElementById('taskTitleInput').value;
+    let userStartDate = document.getElementById('startDateInput').value;
+    let userDueDate = document.getElementById('dueDateInput').value;
 
-    userTaskTitle = document.getElementById('taskTitleInput').value;
-    userStartDate = document.getElementById('startDateInput').value;
-    userDueDate = document.getElementById('dueDateInput').value;
-    currentUser.update({
-        taskName: userTaskTitle,
-        startDate: userStartDate,
-        dueDate: userDueDate
-    })
-        .then(() => {
-            alert("Document successfully updated!");
-        })
-        .catch(error => {
-            console.error("Error updating task: ", error);
-        });
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            db.collection("tasks").add({
+                taskName: userTaskTitle,
+                startDate: userStartDate,
+                dueDate: userDueDate,
+                userId: user.uid, // To associate task with user
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            }).then(() => {
+                alert("Task successfully added!");
+                window.location.href = "main.html"; // Redirect after saving
+            }).catch(error => {
+                console.error("Error adding task: ", error);
+            });
+        } else {
+            console.error("User not authenticated.");
+        }
+    });
 }
 
 function displayTask(collection) {
     let taskContainer = document.getElementById("displayTask");
     taskContainer.innerHTML = "";
 
-    db.collection(collection).get().then(allTasks => {
-        allTasks.forEach(doc => {
-            let taskData = doc.data();
-            let taskID = doc.id;
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            db.collection(collection)
+                .where("userId", "==", user.uid)
+                .orderBy("timestamp", "desc")
+                .get()
+                .then(allTasks => {
+                    allTasks.forEach(doc => {
+                        let taskData = doc.data();
+                        let taskID = doc.id;
 
-            let taskDiv = document.createElement("div");
-            taskDiv.classList.add("task");
-            taskDiv.innerHTML = `
-                <h4 class="title">${taskData.taskName}</h4>
-                <p><strong>Start:</strong> <span class="start">${taskData.startDate}</span></p>
-                <p><strong>Due:</strong> <span class="due">${taskData.dueDate}</span></p>
-                <button onclick="deleteTask('${taskID}')">Delete</button>
-            `;
+                        let taskDiv = document.createElement("div");
+                        taskDiv.classList.add("task");
+                        taskDiv.innerHTML = `
+                            <h4 class="title">${taskData.taskName}</h4>
+                            <p><strong>Start:</strong> <span class="start">${taskData.startDate}</span></p>
+                            <p><strong>Due:</strong> <span class="due">${taskData.dueDate}</span></p>
+                            <button onclick="deleteTask('${taskID}')">Delete</button>
+                        `;
 
-            taskContainer.appendChild(taskDiv);
-        });
-    }).catch(error => {
-        console.error("Error loading tasks: ", error);
-    });
-}
-
-function deleteTask(taskID) {
-    db.collection("tasks").doc(taskID).delete().then(() => {
-        console.log("Task deleted!");
-        displayTask("tasks"); // Refresh task list
-    }).catch(error => {
-        console.error("Error deleting task: ", error);
+                        taskContainer.appendChild(taskDiv);
+                    });
+                }).catch(error => {
+                    console.error("Error loading tasks: ", error);
+                });
+        }
     });
 }
 
