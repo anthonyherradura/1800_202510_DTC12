@@ -1,98 +1,10 @@
-#time_head {
-    margin: 15px;
-    display: inline-block;
-    padding: 24px 32px;
-    border-radius: 30px;
-    background: #EEEEEE;
-}
-
-#timers {
-    background-color: rgb(16, 58, 125);
-    border-radius: 20px;
-    padding: 20px 30px;
-}
-
-#add_time {
-    position: absolute;
-    right: 5%;
-    bottom: 100%;
-    color: black;
-}
-
-h2 {
-    display: inline;
-}
-
-#time {
-    background-color: #EEEEEE;
-    border-radius: 10px;
-    font-size: x-large;
-    display: inline;
-    font-weight: bold;
-    border: 1px solid black;
-}
-
-.timer-card {
-    position: relative;
-    margin-top: 10px;
-    margin-left: 70px;
-    margin-right: 50%;
-    border-radius: 20px;
-    background-color: #EEEEEE;
-    /* Add shadows to create the "card" effect */
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-}
-
-/* On mouse-over, add a deeper shadow */
-.timer-card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
-
-.timer-title {
-    font-size: xx-large;
-    font-weight: 700;
-    text-decoration: underline;
-    padding: 10px;
-}
-
-.timer__part {
-    font-size: 36px;
-    font-weight: bold;
-}
-
-.timer__btn {
-    width: 50px;
-    height: 50px;
-    margin-left: 16px;
-    border-radius: 50%;
-    background-color: orange;
-    cursor: pointer;
-}
-
-.timer__btn--start {
-    background: #9bff65;
-}
-
-.timer__btn--stop {
-    background: red;
-}
-
-.start {
-    position: absolute;
-    bottom: 40%;
-    right: 5%;
-    font-size: x-large;
-    border-radius: 10px;
-    background: #9bff65;
-}
-
-.timer-body{
+.timer-body {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.container{
+
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -103,24 +15,27 @@ h2 {
     padding: 4em 3em;
 }
 
-hr{
+hr {
     width: 100%;
     height: 5px;
     border-radius: 1em;
 }
-.timer{
+
+.timer {
     font-size: 7em;
     font-weight: 700;
     letter-spacing: 1px;
 }
 
-.timer-wrapping{
+.timer-wrapping {
     display: flex;
     gap: 1em;
 }
 
-#start, #stop, #reset{
-    font-size: 2em;
+#start,
+#stop,
+#reset {
+    font-size: 100%;
     font-weight: 800;
     letter-spacing: 1px;
     padding: 0.5em 1.5em;
@@ -129,12 +44,15 @@ hr{
     cursor: pointer;
     transition: 0.25s ease-in-out;
 }
-#start{
+
+#start {
     background-color: greenyellow;
 }
-#stop{
+
+#stop {
     background-color: red;
 }
-#reset{
+
+#reset {
     background-color: rgb(17, 120, 255);
 }
