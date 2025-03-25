@@ -21,7 +21,7 @@ const startTimer = () =>{
 
         if(timeLeft === 0){
             clearInterval(interval);
-            alert("Time's up!");
+            alert("Time's up! Take a break for 5 minutes or start the timer again :)");
             timeLeft = 1500;
             updateTimer();
         }
