@@ -16,9 +16,10 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <link rel="stylesheet" href="styles/style.css">
-    <script src="./scripts/firebaseAPI_DTC12.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <script src="./scripts/authentication.js"></script>
-    <script src="scripts/task.js"></script>
+    <script src="./scripts/firebaseAPI_DTC12.js"></script>
+    <script src="scripts/task.js" defer></script>
 
     <style>
         #home {
@@ -73,7 +74,7 @@
             <div class="container">
                 <h1 id="task_head">Enter Task Details:</h1>
                 <form>
-                    <fieldset class="mb-3" id="personalInfoFields" disabled>
+                    <fieldset class="mb-3" id="personalInfoFields">
                         <div class="form-group">
                             <label>Task Title:</label>
                             <input type="text" id="taskTitleInput" class="form-control"
@@ -82,18 +83,18 @@
                         <br>
                         <div class="form-group">
                             <label>Start Date:</label>
-                            <input type="text" id="startDateInput" class="form-control"
+                            <input type="date" id="startDateInput" class="form-control"
                                 placeholder="Enter when your task starts">
                         </div>
                         <br>
                         <div class="form-group">
                             <label>Due Date:</label>
-                            <input type="text" id="dueDateInput" class="form-control"
+                            <input type="date" id="dueDateInput" class="form-control"
                                 placeholder="Enter when the task is due">
                         </div>
                     </fieldset>
                     <div class="d-flex justify-content-end" id="task_buttons">
-                        <button type="button" class="btn btn-secondary" onclick="editUserTask()">Edit</button>
+                        <a href="main.html" class="btn btn-secondary">Cancel</a>
                         <span style="width: 10px"></span>
                         <button type="button" class="btn" id="add_task_button" onclick="saveUserTask()">Add
                             Task</button>

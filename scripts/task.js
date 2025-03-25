@@ -53,8 +53,7 @@ function saveUserTask() {
         dueDate: userDueDate
     })
         .then(() => {
-            console.log("Document successfully updated!");
-            document.getElementById('personalInfoFields').disabled = true;
+            alert("Document successfully updated!");
         })
         .catch(error => {
             console.error("Error updating task: ", error);
