@@ -56,3 +56,7 @@ hr {
 #reset {
     background-color: rgb(17, 120, 255);
 }
+
+.button-wrapper {
+    min-width: 300px;
+}
