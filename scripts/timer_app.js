@@ -4,6 +4,7 @@ const reset = document.getElementById("reset")
 const timer = document.getElementById("timer")
 
 let timeLeft = 1500;
+let timerActive = false;
 let interval;
 
 const updateTimer = () => {

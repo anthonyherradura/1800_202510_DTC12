@@ -1,8 +1,8 @@
 /* This upper section of the css file will be used for general code that doesn't belong to a specific section or is used in multiple spots */
 body {
     background-color: azure;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
+    /* display: grid;
+    grid-template-rows: auto 1fr auto; */
 }
 
 .wrapper {
@@ -103,7 +103,8 @@ main {
 
 .navbar-color {
     /* background-color: rgb(220, 108, 47); */
-    background-image: linear-gradient(to right, rgb(47, 220, 209), rgb(1, 55, 142));
+    background-image: linear-gradient(to right, rgb(243, 119, 88), rgb(46, 110, 214));
+    /* background: linear-gradient(45deg, #00c6ff, #007bff); */
     color: azure;
     padding-top: 10x;
     padding-bottom: 10px;
