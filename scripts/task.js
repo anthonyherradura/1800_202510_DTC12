@@ -52,7 +52,6 @@ function saveUserTask() {
                 userId: user.uid, // To associate task with user
                 timestamp: firebase.firestore.FieldValue.serverTimestamp()
             }).then(() => {
-                alert("Task successfully added!");
                 window.location.href = "main.html"; // Redirect after saving
             }).catch(error => {
                 console.error("Error adding task: ", error);
@@ -79,12 +78,14 @@ function displayTask(collection) {
                         let taskID = doc.id;
 
                         let taskDiv = document.createElement("div");
-                        taskDiv.classList.add("task");
+                        taskDiv.id = `task-${taskID}`;
                         taskDiv.innerHTML = `
-                            <h4 class="title">${taskData.taskName}</h4>
-                            <p><strong>Start:</strong> <span class="start">${taskData.startDate}</span></p>
-                            <p><strong>Due:</strong> <span class="due">${taskData.dueDate}</span></p>
-                            <button onclick="deleteTask('${taskID}')">Delete</button>
+                            <div class="task">
+                                <h4 class="title">${taskData.taskName}</h4>
+                                <p><strong>Start:</strong> <span class="start">${taskData.startDate}</span></p>
+                                <p><strong>Due:</strong> <span class="due">${taskData.dueDate}</span></p>
+                                <button id="delete_button" onclick="deleteTask('${taskID}')">Delete</button>
+                            </div>
                         `;
 
                         taskContainer.appendChild(taskDiv);
@@ -97,3 +98,19 @@ function displayTask(collection) {
 }
 
 displayTask("tasks");
+
+function deleteTask(taskID) {
+    const taskDiv = document.getElementById(`task-${taskID}`);
+
+    if (taskDiv) {
+        db.collection("tasks").doc(taskID).delete().then(() => {
+            console.log("Task deleted!");
+
+            taskDiv.remove();
+        }).catch(error => {
+            console.error("Error deleting task: ", error);
+        });
+    } else {
+        console.error("Task element not found in the DOM.");
+    }
+}
