@@ -34,7 +34,6 @@ header {
 /* main section of code goes here */
 main {
     grid-area: main;
-    overflow: auto;
 }
 
 #task_title {
