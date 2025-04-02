@@ -4,8 +4,7 @@ const reset = document.getElementById("reset")
 const timer = document.getElementById("timer")
 
 let timeLeft = 1500;
-let timerActive = false;
-let interval;
+let interval = null;
 
 const updateTimer = () => {
     const minutes = Math.floor(timeLeft / 60);
@@ -16,6 +15,9 @@ const updateTimer = () => {
 }
 
 const startTimer = () =>{
+    if (interval !== null){
+        return;
+    }
     interval = setInterval(() =>{
         timeLeft--;
         updateTimer();
@@ -29,12 +31,18 @@ const startTimer = () =>{
     }, 1000)
 }
 
-const stopTimer = () => clearInterval(interval);
+const stopTimer = () => {
+    if (interval !== null) {
+        clearInterval(interval);
+        interval = null;
+    }
+}
 
 const resetTimer = () =>{
-    clearInterval(interval);
-    timeLeft = 1500;
-    updateTimer();
+        clearInterval(interval);
+        timeLeft = 1500;
+        updateTimer();
+        interval = null;
 }
 
 start.addEventListener("click", startTimer);
