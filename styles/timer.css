@@ -34,7 +34,8 @@ hr {
 
 #start,
 #stop,
-#reset {
+#reset,
+#set_timer {
     font-size: 100%;
     font-weight: 800;
     letter-spacing: 1px;
@@ -56,6 +57,7 @@ hr {
 #reset {
     background-color: rgb(17, 120, 255);
 }
+
 
 .button-wrapper {
     min-width: 300px;
